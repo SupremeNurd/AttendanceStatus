@@ -10,6 +10,7 @@ class AttendanceStatus extends StatefulWidget {
 class _AttendanceStatus extends State<AttendanceStatus> {
   int _selectedIndex = 0;
 
+<<<<<<< HEAD
   static const TextStyle optionStyle =
       TextStyle(fontSize: 20, fontWeight: FontWeight.bold);
 
@@ -21,6 +22,55 @@ class _AttendanceStatus extends State<AttendanceStatus> {
     Text(
       '출석신청 현황',
       textAlign: TextAlign.left, style: optionStyle,
+=======
+  static const TextStyle optionStyle = TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.bold,
+  );
+
+  static final List<Widget> _widgetOptions = <Widget>[
+    Text(
+      '메인 홈스크린',
+      style: optionStyle,
+      textAlign: TextAlign.start,
+    ),
+    Column(
+      children: [
+        Row(
+          children: [
+            Text(
+              '출석체크 현황',
+              style: optionStyle,
+              textAlign: TextAlign.left,
+            ),
+            Text(
+              '출근확정만 보기',
+              style: TextStyle(
+                fontSize: 15,
+              ),
+              textAlign: TextAlign.right,
+            ),
+          ],
+        ),
+        SizedBox(
+          height: 140,
+          width: 400,
+          child: Card(
+            elevation: 0,
+            clipBehavior: Clip.antiAlias,
+            color: Color(0xFFf6f6f6),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(18),
+            ),
+            child: InkWell(
+              onTap: () {
+                print('test');
+              },
+            ),
+          ),
+        ),
+      ],
+>>>>>>> f589bc0 (Initial commit)
     ),
     Text(
       '페이지3',
@@ -48,23 +98,43 @@ class _AttendanceStatus extends State<AttendanceStatus> {
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {},
+<<<<<<< HEAD
           icon: Icon(Icons.add, size: 30, color: Colors.red,),
+=======
+          icon: Icon(
+            Icons.add,
+            size: 30,
+            color: Colors.red,
+          ),
+>>>>>>> f589bc0 (Initial commit)
         ),
         actions: [
           IconButton(
             onPressed: () {},
+<<<<<<< HEAD
             icon: Icon(Icons.add, size: 30, color: Colors.red,),
+=======
+            icon: Icon(
+              Icons.add,
+              size: 30,
+              color: Colors.red,
+            ),
+>>>>>>> f589bc0 (Initial commit)
           ),
         ],
         backgroundColor: Colors.white,
         elevation: 0,
+<<<<<<< HEAD
 
+=======
+>>>>>>> f589bc0 (Initial commit)
       ),
       body: Column(
         children: [
           Center(
             child: _widgetOptions.elementAt(_selectedIndex),
           ),
+<<<<<<< HEAD
           Container(
             height: 140,
             width: 400,
@@ -83,6 +153,8 @@ class _AttendanceStatus extends State<AttendanceStatus> {
             color: Colors.grey,
             margin: EdgeInsets.all(10),
           ),
+=======
+>>>>>>> f589bc0 (Initial commit)
         ],
       ),
       bottomNavigationBar: Padding(
