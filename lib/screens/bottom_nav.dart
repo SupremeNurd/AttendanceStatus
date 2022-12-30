@@ -9,7 +9,7 @@ class AttendanceStatus extends StatefulWidget {
 
 class _AttendanceStatus extends State<AttendanceStatus> {
   int _selectedIndex = 0;
-  String navImage = 'assets/images/bottom_nav_center.png';
+  bool isSwitched = false;
 
   static const TextStyle optionStyle =
       TextStyle(fontSize: 20, fontWeight: FontWeight.bold);
@@ -37,21 +37,18 @@ class _AttendanceStatus extends State<AttendanceStatus> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                    child: SizedBox(
-                      child: Text(
-                        '출근확정만 보기',
-                        style: TextStyle(
-                          fontSize: 15,
-                        ),
+                  SizedBox(
+                    child: Text(
+                      '출근확정만 보기',
+                      style: TextStyle(
+                        fontSize: 15,
                       ),
                     ),
                   ),
                   IconButton(
-                      padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                      onPressed: () {},
-                      icon: Icon(Icons.check_circle_outline))
+                    onPressed: () {},
+                    icon: Icon(Icons.check_circle_outline),
+                  ),
                 ],
               ),
             ],
@@ -124,7 +121,7 @@ class _AttendanceStatus extends State<AttendanceStatus> {
             ),
           ),
         ],
-        backgroundColor: Colors.white,
+        backgroundColor: Color.fromRGBO(255, 255, 255, 0),
         elevation: 0,
       ),
       body: Column(
