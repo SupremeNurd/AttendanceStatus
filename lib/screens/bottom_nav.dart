@@ -9,6 +9,7 @@ class AttendanceStatus extends StatefulWidget {
 
 class _AttendanceStatus extends State<AttendanceStatus> {
   int _selectedIndex = 0;
+  String navImage = 'assets/images/bottom_nav_center.png';
 
 <<<<<<< HEAD
   static const TextStyle optionStyle =
@@ -36,21 +37,40 @@ class _AttendanceStatus extends State<AttendanceStatus> {
     ),
     Column(
       children: [
-        Row(
-          children: [
-            Text(
-              '출석체크 현황',
-              style: optionStyle,
-              textAlign: TextAlign.left,
-            ),
-            Text(
-              '출근확정만 보기',
-              style: TextStyle(
-                fontSize: 15,
+        Padding(
+          padding: const EdgeInsets.fromLTRB(40, 5, 40, 5),
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  Text(
+                    '출석체크 현황',
+                    style: optionStyle,
+                  ),
+                ],
               ),
-              textAlign: TextAlign.right,
-            ),
-          ],
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                    child: SizedBox(
+                      child: Text(
+                        '출근확정만 보기',
+                        style: TextStyle(
+                          fontSize: 15,
+                        ),
+                      ),
+                    ),
+                  ),
+                  IconButton(
+                      padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                      onPressed: () {},
+                      icon: Icon(Icons.check_circle_outline))
+                ],
+              ),
+            ],
+          ),
         ),
         SizedBox(
           height: 140,
@@ -73,15 +93,15 @@ class _AttendanceStatus extends State<AttendanceStatus> {
 >>>>>>> f589bc0 (Initial commit)
     ),
     Text(
-      '페이지3',
+      '현장출석 QR페이지',
       style: optionStyle,
     ),
     Text(
-      '페이지4',
+      '현장출석 리스트 페이지',
       style: optionStyle,
     ),
     Text(
-      '페이지5',
+      '마이프로필,설정페이지',
       style: optionStyle,
     ),
   ];
@@ -157,41 +177,59 @@ class _AttendanceStatus extends State<AttendanceStatus> {
 >>>>>>> f589bc0 (Initial commit)
         ],
       ),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          backgroundColor: Colors.black,
-          selectedItemColor: Colors.white,
-          unselectedItemColor: Colors.white.withOpacity(.60),
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          currentIndex: _selectedIndex, //현재 선택된 Index
-          onTap: _onItemTapped,
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.add),
-              label: '01',
+      bottomNavigationBar: Container(
+          padding: const EdgeInsets.all(8.0),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(30),
+            child: BottomNavigationBar(
+              type: BottomNavigationBarType.fixed,
+              backgroundColor: Colors.black,
+              selectedItemColor: Colors.white,
+              unselectedItemColor: Colors.white.withOpacity(.60),
+              showSelectedLabels: false,
+              showUnselectedLabels: false,
+              currentIndex: _selectedIndex, //현재 선택된 Index
+              onTap: _onItemTapped,
+              items: [
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.home,
+                    size: 35,
+                  ),
+                  label: '01',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.article_outlined,
+                    size: 35,
+                  ),
+                  label: '02',
+                ),
+                BottomNavigationBarItem(
+                  icon: Image.asset(
+                    'assets/images/bottom_nav_center.png',
+                    width: 65,
+                    height: 65,
+                  ),
+                  label: '03',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.calendar_month,
+                    size: 35,
+                  ),
+                  label: '04',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.account_circle,
+                    size: 35,
+                  ),
+                  label: '05',
+                ),
+              ],
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.add),
-              label: '02',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.add),
-              label: '03',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.add),
-              label: '04',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.add),
-              label: '05',
-            ),
-          ],
-        ),
-      ),
+          )),
     );
   }
 }
